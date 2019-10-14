@@ -1,0 +1,26 @@
+1.- Se tiene que instalar python 3 o superior
+2.- Se instala Django con el siguiente comando "pip install Django"
+3.- Se comprueba la instalación con el siguiente comando "python -m django --version" 
+arroja un numero 2.2 o superior
+4.- Se crea un proyecto de ejemplo, dentro de la ruta donde queremos el proyecto ejecutamos
+el comando siguiente "django-admin startproject mysite" cambiamos el "mysite" 
+por el nombre del proyecto que va a tener en este caso isw_django
+5.- Para ejecutar el servidor de desarrollo se ejecuta el siguiente comando
+"python manage.py runserver"
+6.- El servidor para desarrollo se ejecuta por defecto en el puerto 8000
+pero agregando el puerto al comando podemos ejecutarlo en otro 
+i.e "python manage.py runserver 8080"
+7.- Ahora creamos una picina de aplicaciones el cual es como un subsitio de nuestra
+aplicacion principal, detenemos la ejecución del sitio con "ctrl+c" y 
+con el siguiente comando "python manage.py startapp polls" estando en el mismo directorio 
+que el archivo "manage.py" para este caso cambiaremos el nombre de la picina a "demo"
+8.- Configuramos la URL de nuestra picina agregando el archivo "urls.py" con el siguiente script
+"from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]"
+9.- Ahora configuramos nuestra picina en el proyecto principal en su archivo "urls.py"
+agregando "path('demo/', include('demo.urls')),"
